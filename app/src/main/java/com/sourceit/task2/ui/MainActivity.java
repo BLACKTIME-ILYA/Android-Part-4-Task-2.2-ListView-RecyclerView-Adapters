@@ -12,6 +12,7 @@ import com.sourceit.task2.model.Product;
 import com.sourceit.task2.utils.L;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int tempProductNumber;
 
-    private ArrayList<Integer> positions = new ArrayList<>();
-    private ArrayList<Product> products = new ArrayList<>();
+    private LinkedList<Integer> positions = new LinkedList<>();
+    private LinkedList<Product> products = new LinkedList<>();
 
     private ArrayList<Integer> requestsKeys = new ArrayList<>();
     private ArrayList<Integer> requestsValues = new ArrayList<>();
