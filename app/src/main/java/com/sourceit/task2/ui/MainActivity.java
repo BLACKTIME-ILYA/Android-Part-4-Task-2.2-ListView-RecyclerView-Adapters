@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         } else return tempCount;
     }
 
-    private int doRequests() {
+    private byte doRequests() {
         for (int i = 0; i < requestsValues.size(); i++) {
             if (!products.isEmpty()) {
                 if (positions.contains(requestsKeys.get(i))) {
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (!paused) {
                 if (!requestsValues.isEmpty()) {
-                    int back = doRequests();
+                    byte back = doRequests();
                 }
                 if (positions.contains(numbersBuyProducts[i])) {
                     products.get(positions.indexOf(numbersBuyProducts[i])).count -= buy;
