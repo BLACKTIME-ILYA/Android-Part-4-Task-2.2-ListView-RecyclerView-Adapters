@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button buutonPause;
+    private Button buttonPause;
     boolean connect = true;
 
     private MyAdapter myAdapter;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buutonPause = (Button) findViewById(R.id.button_pause);
+        buttonPause = (Button) findViewById(R.id.button_pause);
 
         for (int i = 0; i < 5; i++) {
             products.add(new Product("product" + i, NUMBER_OF_GOODS));
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         repeatBuys();
 
-        buutonPause.setOnClickListener(new View.OnClickListener() {
+        buttonPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!paused) {
