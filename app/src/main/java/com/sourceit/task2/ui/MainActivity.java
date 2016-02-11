@@ -3,9 +3,10 @@ package com.sourceit.task2.ui;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.sourceit.task2.R;
 import com.sourceit.task2.model.Product;
@@ -17,10 +18,10 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    private RecyclerView products_list;
     private Button buttonPause;
     boolean connect = true;
 
-    private MyAdapter myAdapter;
     private Random random = new Random();
 
     private boolean paused;
@@ -56,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
             positions.add(i);
         }
 
-        ListView products_list = (ListView) findViewById(R.id.products_list);
-        myAdapter = new MyAdapter(this, products);
-        products_list.setAdapter(myAdapter);
+        products_list = (RecyclerView) findViewById(R.id.products_list);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        products_list.setLayoutManager(layoutManager);
+        products_list.setAdapter(new RecyclerViewAdapter(products));
 
         repeatBuys();
 
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void repeatBuys() {
         L.d("repeatBuys");
-        myAdapter.notifyDataSetChanged();
+        products_list.getAdapter().notifyDataSetChanged();
         if (!products.isEmpty()) {
             new MyAsyncTask().execute();
         }
